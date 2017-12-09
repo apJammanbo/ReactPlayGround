@@ -13,10 +13,14 @@
 ## Features
 
 <dl>
-  <dt>Quick scaffolding</dt>
+  <dt>보일러플레이트</dt>
   <dd>기본 보일러플레이트는 
   <a href="https://www.reactboilerplate.com">React BoilerPlate</a>
   를 사용했습니다.</dd>
+
+## Documentation
+
+- [**`ReactPlayGround` 소개**](docs/general/introduction.md): 이 프로젝트의 간략한 설명입니다.
 
 
 ## License
