@@ -14,7 +14,7 @@
 
 <dl>
   <dt>보일러플레이트</dt>
-  <dd>기본 보일러플레이트는 
+  <dd>보일러플레이트는 
   <a href="https://www.reactboilerplate.com">React BoilerPlate</a>
   를 사용했습니다.</dd>
 
