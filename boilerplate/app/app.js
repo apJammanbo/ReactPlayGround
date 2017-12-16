@@ -82,8 +82,7 @@ if (module.hot) {
     module.hot.accept(['./i18n', 'containers/App'], () => {
         ReactDOM.unmountComponentAtNode(MOUNT_NODE);
         render(translationMessages);
-    });
-}
+    });}
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
@@ -99,6 +98,7 @@ if (!window.Intl) {
             throw err;
         });
 } else {
+
     render(translationMessages);
 }
 
