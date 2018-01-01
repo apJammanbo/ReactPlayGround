@@ -20,67 +20,19 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-function resolveAfter2Seconds(x) {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(x);
-        }, 2000);
-    });
-}
-
-async function add1(x) {
-    var a = resolveAfter2Seconds(20);
-    var b = resolveAfter2Seconds(30);
-    return x + await a + await b;
-}
-
-add1(10).then(v => {
-    console.log(v);  // prints 60 after 2 seconds.
-});
-
-// async function add2(x) {
-//     var a = await resolveAfter2Seconds(20);
-//     var b = await resolveAfter2Seconds(30);
-//     return x + a + b;
-// }
-//
-// add2(10).then(v => {
-//     console.log(v);  // prints 60 after 4 seconds.
-// });
-
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-    resolveAfter2Seconds = (x) => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(x);
-            }, 2000);
-        });
-    }
-
-    async add1 = (x) => {
-        var a = resolveAfter2Seconds(20);
-        var b = resolveAfter2Seconds(30);
-        return x + await a + await b;
-    }
-
-
     render() {
-        console.log('start');
-        let a = 10;
-
-
-
         return (
             <article>
 
-                <Helmet>
-                    <title>First Page</title>
-                    <meta name="description" content="A React.js Boilerplate application homepage" />
-                </Helmet>
+              <Helmet>
+                <title>First Page</title>
+                <meta name="description" content="A React.js Boilerplate application homepage" />
+              </Helmet>
 
-                <div>
-                    This Is HomePage
-                </div>
+              <div>
+                  This Is HomePage
+              </div>
             </article>
         );
     }
