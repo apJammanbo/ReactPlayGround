@@ -7,43 +7,61 @@
  */
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage';
-import SecondPage from 'containers/SecondPage';
-import ThirdPage from 'containers/ThirdPage';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+// state, props
 
-const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
-  margin: 0 auto;
-  display: flex;
-  min-height: 100%;
-  padding: 0 16px;
-  flex-direction: column;
-`;
+// Parent Component
+class GroceryList extends React.Component {
 
-export default function App() {
-    return (
-        <AppWrapper>
-            <Helmet
-                titleTemplate="%s - React.js Boilerplate"
-                defaultTitle="React.js Boilerplate"
-            >
-                <meta name="description" content="A React.js Boilerplate application" />
-            </Helmet>
-            <Header />
-            <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route path="/second" component={SecondPage} />
-                <Route path="/third" component={ThirdPage}/>
-                <Route path="" component={NotFoundPage} />
-            </Switch>
-            <Footer />
-        </AppWrapper>
-    );
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            groceryList: [
+                {quantity: 1, name: "Bread"},
+                {quantity: 6, name: "Eggs"},
+                {quantity: 2, name: "Mili"}
+            ]
+        }
+    }
+
+    handleClick = () => {
+        let list = this.state.groceryList.map((item) => {
+                 item.quantity = item.quantity + 1;
+            return item;
+        })
+        this.setState({groceryList: list});
+    };
+
+    render() {
+        console.log('render-GroceryList');
+        return (
+            <div>
+                <button onClick={this.handleClick}>Test</button>
+                <ul>
+                    {
+                        this.state.groceryList.map((item) => {
+                            return <ListItem quantity={item.quantity} name={item.name} test={"1"}></ListItem>
+                        })
+                    }
+                </ul>
+            </div>
+        );
+    }
 }
+
+// state / props
+
+class ListItem extends React.Component {
+
+    render() {
+        console.log('render-ListItem');
+        return (
+            <li>
+                {this.props.quantity} × {this.props.name}
+            </li>
+        );
+    }
+}
+
+export default GroceryList;
